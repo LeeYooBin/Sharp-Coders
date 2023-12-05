@@ -1,0 +1,24 @@
+.login-page {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.form-wrapper, .form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form {
+    gap: .5rem;
+}
+
+.btn {
+    width: 40%;
+}
