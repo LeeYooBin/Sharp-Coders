@@ -1,6 +1,6 @@
 const taskTableBody = document.querySelector("#task-table-body");
 
-taskTableBody.innerHTML = '';
+taskTableBody.innerHTML = "";
 
 const formatDate = (date, hour) => {
     const formattedDate = new Date(`${date}T${hour}`);
@@ -8,7 +8,7 @@ const formatDate = (date, hour) => {
 };
 
 if (currentUser.tasks.length > 0) {
-    document.querySelector("#task-table-container").style.display = 'block';
+    document.querySelector(".task-table-wrapper").style.display = 'block';
 
     currentUser.tasks.forEach((task, index) => {
         const row = taskTableBody.insertRow();
@@ -20,16 +20,19 @@ if (currentUser.tasks.length > 0) {
         const cellStatus = row.insertCell(3);
         const cellActions = row.insertCell(4);
 
-        cellTask.innerHTML = task.task;
+        cellTask.innerHTML = `<button class="task-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">${task.task}</button>`;
         cellStartDate.innerHTML = formatDate(task.startDate, task.startHour);
         cellEndDate.innerHTML = formatDate(task.endDate, task.endHour);
         cellStatus.innerHTML = task.status;
 
-        const btnMarkComplete = `<button class="complete-btn" id="complete-button"><i class="bi bi-check-circle-fill"></i></button>`;
-        const btnEdit = `<button class="edit-btn" id="edit-button"><i class="bi bi-pen-fill"></i></button>`;
-        const btnDelete = `<button class="delete-btn" id="delete-button"><i class="bi bi-trash-fill"></i></button>`;
+        const btnMarkComplete = `<button class="complete-btn"><i class="bi bi-check-circle-fill"></i></button>`;
+        const btnEdit = `<button class="edit-btn"><i class="bi bi-pen-fill"></i></button>`;
+        const btnDelete = `<button class="delete-btn"><i class="bi bi-trash-fill"></i></button>`;
 
         cellActions.innerHTML = `${btnEdit} ${btnDelete} ${btnMarkComplete}`;
     });
-} 
-else document.getElementById('task-table-container').style.display = "none";
+}
+else {
+    const table = document.getElementById("task-table-container");
+    if (table) table.style.display = "none";
+}

@@ -4,7 +4,7 @@ const registerButton = document.querySelector("#register-button");
 
 const isEmailRegistered = email => userRecords.some(record => record.email === email);
 
-loginButton.addEventListener("click", function (e) {
+loginButton.addEventListener("click", e => {
     e.preventDefault();
     const email = document.querySelector("#login-email");
     const password = document.querySelector("#login-password");
@@ -17,24 +17,24 @@ loginButton.addEventListener("click", function (e) {
     } 
     else {
         alert('Credenciais inválidas');
-        // email.value = "";
-        // password.value = "";
-        this.reset();
+        email.value = "";
+        password.value = "";
     }
 });
 
-registerButton.addEventListener("click", function (e) {
+registerButton.addEventListener("click", e => {
     e.preventDefault();
     const name = document.querySelector("#register-name");
     const email = document.querySelector("#register-email");
     const password = document.querySelector("#register-password");
 
+    if (!name.value || !email.value || !password.value) alert("Os campos precisam estar preenchidos!");
+
     if (isEmailRegistered(email.value)) {
         alert('Este email já está registrado.');
-        // name.value = "";
-        // email.value = "";
-        // password.value = "";
-        this.reset();
+        name.value = "";
+        email.value = "";
+        password.value = "";
         return;
     }
 

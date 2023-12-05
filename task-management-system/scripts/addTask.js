@@ -11,6 +11,7 @@ const addTask = task => {
     currentUser.tasks.push(task);
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
     updateUserRecords(currentUser);
+    window.location.reload();
 };
 
 addButton.addEventListener('click', function (e) {
@@ -34,9 +35,8 @@ addButton.addEventListener('click', function (e) {
         status: calculateTaskStatus(startDate.value, endDate.value)
     };
 
-    addTask(task);
-
-    this.reset();
+    if (taskInput.value && startDate.value && endDate.value && startHour.value && endHour.value) addTask(task);
+    else alert("Os campos essenciais precisam estar preenchidos!"); 
 });
 
 const calculateTaskStatus = (startDate, endDate) => {

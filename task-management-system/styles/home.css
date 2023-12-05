@@ -7,6 +7,7 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    position: relative;
 }
 
 .form {
@@ -29,9 +30,49 @@
     align-self: flex-start;
 }
 
-.action {
+.delete-btn, .edit-btn, .complete-btn {
+    border: none;
+    background: transparent;
+}
+
+.delete-btn {
+    color: #DC3545;
+}
+
+.edit-btn {
+    color: #FFC107;
+}
+
+.complete-btn {
+    color: #28A745;
+}
+
+.task-table-wrapper {
+    display: none;
+    width: 60%;
+}
+
+.task-btn {
     width: auto;
     height: auto;
     background: transparent;
-    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-buttons {
+    align-self: flex-start;
+    display: none;
+    gap: .5rem;
+}
+
+.logout {
+    position: absolute;
+    z-index: 1;
+    left: 3rem;
+    border: none;
+    background: transparent;
+    font-size: 2rem;
 }
